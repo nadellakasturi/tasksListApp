@@ -19,9 +19,9 @@ class CreateTasksTable extends Migration
             $table->string('description')->nullable();
             $table->string('status')->nullable();
             $table->string('task_priority')->nullable();
-            $table->nullableTimestamps('completed_at', $precision = 0);
+            $table->timestamp('completed_at');
             $table->foreignId('user_id')->constrained();
-            $table->timestamps();
+            $table->timestamps();//$table->timestamp('created_at); will use Current_timestamp otherwise it is making them as default "NULL"
         });
     }
 
